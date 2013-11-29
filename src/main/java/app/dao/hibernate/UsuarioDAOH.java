@@ -1,4 +1,3 @@
-
 package app.dao.hibernate;
 
 import app.dao.BaseHibernateDAO;
@@ -12,8 +11,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository("usuarioDAO")
-public class UsuarioDAOH extends BaseHibernateDAO implements UsuarioDAO{
- 
+public class UsuarioDAOH extends BaseHibernateDAO implements UsuarioDAO {
+
     public List<Usuario> list() {
         Criteria criteria = this.getSession().createCriteria(Usuario.class);
         return criteria.list();
@@ -44,6 +43,20 @@ public class UsuarioDAOH extends BaseHibernateDAO implements UsuarioDAO{
     public Usuario getByPersona(Persona persona) {
         Criteria criteria = this.getSession().createCriteria(Usuario.class);
         criteria.add(Restrictions.eq("persona", persona));
+        return (Usuario) criteria.uniqueResult();
+    }
+
+    @Override
+    public Usuario getUsuarioForAuthDAO(Usuario usuario) {
+        Criteria criteria = this.getSession().createCriteria(Usuario.class);
+        criteria.add(Restrictions.eq("usuario", usuario.getUsuario()));
+        return (Usuario) criteria.uniqueResult();
+    }
+
+    @Override
+    public Usuario getByUserName(String username) {
+        Criteria criteria = this.getSession().createCriteria(Usuario.class);
+        criteria.add(Restrictions.eq("usuario", username));
         return (Usuario) criteria.uniqueResult();
     }
 }

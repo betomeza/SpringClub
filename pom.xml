@@ -72,20 +72,32 @@
             <version>1.7.5</version>
         </dependency>
         
-          <!-- SPRING MVC -->
-         <dependency>
+        <!-- SPRING MVC -->
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>3.2.4.RELEASE</version>
         </dependency>
         
-         <dependency>
+        <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
         
+        <!-- Spring Security -->
         
+        <dependency> 
+            <groupId>org.springframework.security</groupId> 
+            <artifactId>spring-security-web</artifactId> 
+            <version>3.1.4.RELEASE</version>
+        </dependency>
+        
+        <dependency> 
+            <groupId>org.springframework.security</groupId> 
+            <artifactId>spring-security-config</artifactId> 
+            <version>3.1.4.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
