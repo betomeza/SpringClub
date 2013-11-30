@@ -20,6 +20,7 @@ public class AdmController {
         Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
         
         return "ADMINISTRADOR: "+ persona.getFullName();
+        
     }
     
     
