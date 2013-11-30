@@ -1,4 +1,4 @@
-package app.controller.auth;
+package app.controller.security;
 
 import app.dao.UsuarioDAO;
 import app.model.Usuario;
