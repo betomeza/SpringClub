@@ -35,7 +35,7 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
         for (UsuarioRol rol : roles) {
             if (rol.getAuthority().equals(RolesEnum.ADMIN.getValue())) {
-                this.setDefaultTargetUrl("/adm");
+                this.setDefaultTargetUrl("/adm/admin");
                 break;
                 
             } else if (rol.getAuthority().equals(RolesEnum.SOCIO.getValue())) {

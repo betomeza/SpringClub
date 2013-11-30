@@ -20,7 +20,7 @@
                         <h1> Nuevo Local </h1>
                     </div>
 
-                    <form action="<%=contextPath%>/adm/local/save" method="POST" class="form-horizontal">
+                    <form id="formlocal" action="<%=contextPath%>/adm/local/save" method="POST" class="form-horizontal">
 
                         <input type="hidden" value="${local.id}" name="id">
 
@@ -59,5 +59,35 @@
             <hr>
         </div>
         <%@include file="/public/footer.jsp" %>
+        <script>
+            $(function() {
+                $("#formlocal").validate({
+                    rules: {
+                        descripcion: {
+                            required: true,
+                            maxlength: 200
+                        },
+                        direccion: {
+                            required: true,
+                            maxlength: 500
+                        },
+                        telefono: {
+                            required: true,
+                            maxlength: 20
+                        }
+                    },
+                    highlight: function(element) {
+                        $(element).closest('.control-group').removeClass('success').addClass('error');
+                    },
+                    success: function(element) {
+                        element
+                                .text('OK!').addClass('valid')
+                                .closest('.control-group').removeClass('error').addClass('success');
+                    }
+                }
+                );
+            }
+            );
+        </script>        
     </body>
 </html>

@@ -27,7 +27,7 @@
                         <div class="control-group">
                             <label class="control-label">Local</label>
                             <div class="controls">
-                                <select name="${local.id}">
+                                <select name="${local.id}" id="${local.id}">
                                         <c:forEach var="serv" items="${locales}">
                                             <option value="${serv.id}">${serv.descripcion}</option>
                                         </c:forEach>
@@ -52,7 +52,7 @@
                         <div class="control-group">
                             <label class="control-label">Costo Hora</label>
                             <div class="controls">
-                                <input type="text" name="costohora" value="${campo.costohora}">
+                                <input type="text" name="costoHora" value="${campo.costoHora}">
                             </div>
                         </div>
 

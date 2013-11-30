@@ -79,51 +79,46 @@
                     </form>    
                 </div>
             </div>
-            <hr>
-                    <script src="http://code.jquery.com/jquery.js"></script>
-                    <script src="/public/bootstrap/js/bootstrap.min.js"></script>
-                    <script src="/public/jvalidation/jquery.validate.min.js"></script>
-                    <script src="/public/jvalidation/messages_es.js"></script>
-                    <script>
-                        $(function() {
-                        $("#formAdmin").validate({
-                        rules: {
-                            nombres: {
-                                required: true,  
-                                maxlength: 45
-                            },
-                            paterno: {
-                                required: true,
-                                maxlength: 45                                
-                            },
-                            materno: {
-                                required: true,
-                                maxlength: 45                                
-                            },
-                            email: {
-                                required: true,
-                                email: true
-                            },
-                            direccion: {
-                                required: true,
-                                maxlength: 45
-                            }
-                        },
-                        highlight: function(element) {
-                            $(element).closest('.control-group').removeClass('success').addClass('error');
-                        },
-                        success: function(element) {
-                            element
-                                    .text('OK!').addClass('valid')
-                                    .closest('.control-group').removeClass('error').addClass('success');
-                            }
-                        }
-                        );
-                    }
-                    );
-                    </script>          
-            
+            <hr>           
         </div>
         <%@include file="/public/footer.jsp" %>
+        <script>
+            $(function() {
+                $("#formAdmin").validate({
+                    rules: {
+                        nombres: {
+                            required: true,
+                            maxlength: 45
+                        },
+                        paterno: {
+                            required: true,
+                            maxlength: 45
+                        },
+                        materno: {
+                            required: true,
+                            maxlength: 45
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        direccion: {
+                            required: true,
+                            maxlength: 45
+                        }
+                    },
+                    highlight: function(element) {
+                        $(element).closest('.control-group').removeClass('success').addClass('error');
+                    },
+                    success: function(element) {
+                        element
+                                .text('OK!').addClass('valid')
+                                .closest('.control-group').removeClass('error').addClass('success');
+                    }
+                }
+                );
+            }
+            );
+        </script>         
     </body>
 </html>

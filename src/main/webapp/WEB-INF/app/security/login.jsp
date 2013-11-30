@@ -14,7 +14,7 @@
 
         <div class="container-fluid">
             <div class="row-fluid">
-                <form class="form-signin" action="<%=contextPath%>/j_spring_security_check" method="post">
+                <form id="formLogin" class="form-signin" action="<%=contextPath%>/j_spring_security_check" method="post">
                     <h2 class="form-signin-heading">Ingresar</h2>
                     <input type="text" class="input-block-level" placeholder="Email address" name="j_username">
                     <input type="password" class="input-block-level" placeholder="Password"  name="j_password">
@@ -24,6 +24,32 @@
             </div>
         </div>
         <%@include file="/public/footer.jsp" %>
+        <script>
+            $(function() {
+                $("#formLogin").validate({
+                    rules: {
+                        j_username: {
+                            required: true,
+                            maxlength: 30
+                        },
+                        j_password: {
+                            required: true,
+                            maxlength: 30
+                        }
+                    },
+                    highlight: function(element) {
+                        $(element).closest('.control-group').removeClass('success').addClass('error');
+                    },
+                    success: function(element) {
+                        element
+                                .text('OK!').addClass('valid')
+                                .closest('.control-group').removeClass('error').addClass('success');
+                    }
+                }
+                );
+            }
+            );
+        </script>        
     </body>
 </html>
 
