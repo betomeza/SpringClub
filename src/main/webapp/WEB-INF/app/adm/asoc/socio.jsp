@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title> Local </title>
+        <title> Socios </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <%@include file="/public/header.jsp" %>
@@ -18,31 +18,26 @@
                 <div class="span9">
                     <div class="row">
                         <a class="btn btn-primary pull-right" 
-                           href="<%=contextPath%>/adm/local/new"> Nuevo </a>
-                        <h1> Locales </h1>
+                           href="<%=contextPath%>/adm/asociado/new"> Nuevo </a>
+                        <h1> Socios </h1>
                     </div>
 
                     <table class="table table-hover">
                         <tr>
-                            <th class="span3">Descripción</th>
+                            <th class="span3">Nombre</th>
+                            <th>Email</th>
+                            <th>Celular</th>
                             <th>Dirección</th>
-                            <th>Teléfono</th>
                             <th>Estado</th>
                             <th> </th>
                         </tr>
-                        <c:forEach var="serv" items="${locales}">
+                        <c:forEach var="soc" items="${asocs}">
                             <tr>
-                                <td><c:out value="${serv.descripcion}"/></td>
-                                <td><c:out value="${serv.direccion}"/></td>
-                                <td><c:out value="${serv.telefono}"/></td>
-                                <td>
-                                    <c:if test="${serv.estado == 1}">
-                                        <label class="label label-success"><c:out value="Activo"/> </label>
-                                    </c:if>
-                                    <c:if test="${serv.estado != 1}">
-                                        <label class="label label-warning"><c:out value="Inactivo"/> </label>
-                                    </c:if>
-                                </td>
+                                <td><c:out value="${soc.getFullName()}"/></td>
+                                <td><c:out value="${soc.email}"/></td>
+                                <td><c:out value="${soc.celular}"/></td>
+                                <td><c:out value="${soc.direccion}"/></td>
+                                
                                 <td>
                                     <div class="btn-group">
                                         <a class="dropdown-toggle" data-toggle="dropdown" role="menu"  href="#">
@@ -50,11 +45,11 @@
                                         </a>
                                         <ul class="dropdown-menu pull-right">
                                             <li>
-                                                <a href="<%=contextPath%>/adm/local/update/${serv.id}">
+                                                <a href="<%=contextPath%>/adm/asociado/update/${soc.id}">
                                                     Editar</a>
                                             </li>
                                             <li>
-                                                <a href="<%=contextPath%>/adm/local/delete/${serv.id}">
+                                                <a href="<%=contextPath%>/adm/asociado/delete/${soc.id}">
                                                     Eliminar</a>
                                             </li>
                                         </ul>
@@ -64,10 +59,10 @@
                         </c:forEach>
                     </table>
                 </div>
-            </div>             
+            </div>
             <hr>
         </div>
-        <%@include file="/public/footer.jsp" %>                                
+        <%@include file="/public/footer.jsp" %>
     </body>
 </html>
 
