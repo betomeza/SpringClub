@@ -88,7 +88,7 @@
                             maxlength: 200
                         },
                         tipo: {
-                            required: true,
+                            required: true
                         },
                         costoHora: {
                             required: true,
