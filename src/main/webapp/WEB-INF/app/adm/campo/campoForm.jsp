@@ -20,7 +20,7 @@
                         <h1> Nuevo Campo Deportivo </h1>
                     </div>
 
-                    <form action="<%=contextPath%>/adm/campo/save" method="POST" class="form-horizontal">
+                    <form id="formCampo" action="<%=contextPath%>/adm/campo/save" method="POST" class="form-horizontal">
 
                         <input type="hidden" value="${campo.id}" name="id">
 
@@ -79,5 +79,34 @@
             <hr>
         </div>
         <%@include file="/public/footer.jsp" %>
+        <script>
+            $(function() {
+                $("#formCampo").validate({
+                    rules: {
+                        descripcion: {
+                            required: true,
+                            maxlength: 200
+                        },
+                        tipo: {
+                            required: true,
+                        },
+                        costoHora: {
+                            required: true,
+                            number: true
+                        }
+                    },
+                    highlight: function(element) {
+                        $(element).closest('.control-group').removeClass('success').addClass('error');
+                    },
+                    success: function(element) {
+                        element
+                                .text('OK!').addClass('valid')
+                                .closest('.control-group').removeClass('error').addClass('success');
+                    }
+                }
+                );
+            }
+            );
+        </script>                 
     </body>
 </html>
