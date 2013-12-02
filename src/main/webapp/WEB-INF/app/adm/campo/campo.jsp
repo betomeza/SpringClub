@@ -25,7 +25,7 @@
                     <table class="table table-hover">
                         <tr>
                             <th class="span3">Descripción</th>
-                            <th>Dirección</th>
+                            <th>Tipo</th>
                             <th>Costo/Hora</th>
                             <th>Estado</th>
                             <th> </th>

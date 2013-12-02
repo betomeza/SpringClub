@@ -10,7 +10,7 @@
         <%@include file="/public/header.jsp" %>
     </head>
     <body>
-        <%@include file="/public/menuGeneral.jsp" %>
+        <!--@include file="/public/menuGeneral.jsp" %>-->
 
         <div class="container-fluid">
             <div class="row-fluid">

@@ -1,3 +1,10 @@
+<%@page import="app.zelper.Constantes"%>
+<%@page import="app.model.Persona"%>
+<%
+
+    Persona autenticado = (Persona)request.getSession().getAttribute(Constantes.SESSION_USUARIO);
+
+%>
 <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -10,7 +17,8 @@
           
           <div class="nav-collapse collapse" style="height: 0px;">
             <p class="navbar-text pull-right">
-              Autenticado como <a href="#" class="navbar-link">Usuario</a>
+              <%=autenticado.getFullName()%> <a href="<%=contextPath%>/j_spring_security_logout"> Salir </a> 
+
             </p>
             <!--<ul class="nav">
               <li class="active"><a href="#">Home</a></li>

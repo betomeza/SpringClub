@@ -27,14 +27,15 @@
                         <div class="control-group">
                             <label class="control-label">Local</label>
                             <div class="controls">
-                                <select name="${local.id}" id="${local.id}">
-                                        <c:forEach var="serv" items="${locales}">
-                                            <option value="${serv.id}">${serv.descripcion}</option>
-                                        </c:forEach>
+                                <select name="local.id" id="local.id">
+                                    <option value="0" selected>Seleccione Local</option>
+                                    <c:forEach var="item" items="${locales}">
+                                        <option value="${item.id}">${item.descripcion}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                         </div>
-                        
+
                         <div class="control-group">
                             <label class="control-label">Descripción</label>
                             <div class="controls">
@@ -45,7 +46,15 @@
                         <div class="control-group">
                             <label class="control-label">Tipo</label>
                             <div class="controls">
-                                <input type="text" name="tipo" value="${campo.tipo}">
+                                <select name="tipo" id="tipo">
+                                    <option value="0" selected>Seleccione Tipo de Campo</option>
+                                    <option value="1">Fútbol</option>
+                                    <option value="2">Fútsal</option>
+                                    <option value="4">Fúlbito</option>
+                                    <option value="5">Voleyball</option>
+                                    <option value="6">Basketball</option>
+                                    <option value="7">Tenis</option>
+                                </select>
                             </div>
                         </div>
 

@@ -13,10 +13,7 @@ import app.zelper.RolesEnum;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.util.DigestUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Service
 public class AsociadoServiceImp implements AsociadoService {
@@ -33,9 +30,9 @@ public class AsociadoServiceImp implements AsociadoService {
     @Autowired
     UsuarioRolDAO usuarioRolDAO;
 
-
+    @Override
     public List<Persona> list() {
-        return personaDAO.list();
+        return personaDAO.listSocio();
     }
 
     @Override
@@ -49,6 +46,7 @@ public class AsociadoServiceImp implements AsociadoService {
         
         Socio asoc = new Socio();
         asoc.setPersona(t);
+        socioDAO.save(asoc);
         
         Usuario user = new Usuario();
         user.setPersona(t);
@@ -70,6 +68,7 @@ public class AsociadoServiceImp implements AsociadoService {
         
         Socio asoc =  socioDAO.getByPersona(t);
         asoc.setPersona(t);
+        socioDAO.update(asoc);
         
         Usuario usuario = usuarioDAO.getByPersona(t);
         usuario.setUsuario(t.getEmail());
@@ -78,7 +77,7 @@ public class AsociadoServiceImp implements AsociadoService {
 
     @Override
     public void delete(Persona t) {
-        
+            
         personaDAO.delete(t);
     }
 }

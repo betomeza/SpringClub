@@ -40,11 +40,11 @@
                                         <ul class="dropdown-menu pull-right">
                                             <li>
                                                 <a href="<%=contextPath%>/adm/servicio/update/${serv.id}">
-                                                Editar<a>
+                                                Editar</a>
                                             </li>
                                             <li>
                                                 <a href="<%=contextPath%>/adm/servicio/delete/${serv.id}">
-                                                    Eliminar<a>
+                                                    Eliminar</a>
                                             </li>
                                         </ul>
                                       </div>

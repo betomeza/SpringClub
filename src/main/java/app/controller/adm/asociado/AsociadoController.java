@@ -59,12 +59,14 @@ public class AsociadoController {
             service.update(persona);
         }
 
-        return "redirect:/adm/asoc";
+        return "redirect:/adm/asociado";
     }
 
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable long id) {
 
+
+        
         service.delete(new Persona(id));
 
         return "redirect:/adm/asoc";

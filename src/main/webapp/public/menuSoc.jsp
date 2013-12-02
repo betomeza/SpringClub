@@ -6,8 +6,8 @@
             <li><a href="<%=contextPath%>/adm/tickets">Tickets</a></li>
             <li><a href="<%=contextPath%>/adm/calendarios">Calendario</a></li>
             
-            <li class="nav-header">Socios</li>
-            <li><a href="<%=contextPath%>/adm/local">Locales</a></li>
+            <li class="nav-header">Administración</li>
+            <li class="active"><a href="<%=contextPath%>/adm/local">Locales</a></li>
             <li><a href="<%=contextPath%>/adm/campo">Campos Deportivos</a></li>
             <li><a href="<%=contextPath%>/adm/servicio">Servicios</a></li>
             <li><a href="<%=contextPath%>/adm/asociado">Socios</a></li>

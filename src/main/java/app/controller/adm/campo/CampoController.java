@@ -28,6 +28,7 @@ public class CampoController {
     @RequestMapping("new")
     public String nuevo(Model model) {
 
+        model.addAttribute("locales", service.listLocal());
         model.addAttribute("campo", new Campo());
 
         return "adm/campo/campoForm";

@@ -50,7 +50,14 @@
                                         </a>
                                         <ul class="dropdown-menu pull-right">
                                             <li>
-                                                <a href="<%=contextPath%>/adm/local/update/${serv.id}">
+                                                <a href="#" class="activar" ref="${serv.id}">
+                                                    <c:if test="${serv.estado == 0}">Activar</c:if>
+                                                    <c:if test="${serv.estado == 1}">Desactivar</c:if>
+
+                                                    </a></li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <a href="<%=contextPath%>/adm/local/update/${serv.id}">
                                                     Editar</a>
                                             </li>
                                             <li>
@@ -68,6 +75,32 @@
             <hr>
         </div>
         <%@include file="/public/footer.jsp" %>                                
+        <script>
+            $(function() {
+
+                $('.activar').each(function(index, elem) {
+                    $(elem).click(function() {
+                        var idLocal = $(elem).attr("ref");
+                        console.log(idLocal);
+                        
+                        $.ajax({
+                            url:"/SpringClub/adm/local/activar",
+                            method: "post",
+                            data: {id : idLocal },
+                            success: function(response){
+                                
+                                if(response.success){
+                                    location.reload();
+                                }
+                            }
+                            
+                        });
+
+                    });
+                });
+            });
+        </script>
+
     </body>
 </html>
 

@@ -10,5 +10,5 @@ public interface PersonaDAO extends GenericCrud<Persona> {
  
     List<Persona> listAdministrador();
     
-    
+    List<Persona> listSocio();    
 }
